@@ -1,4 +1,5 @@
 import json
+import os
 from notebook.utils import url_path_join
 from notebook.base.handlers import IPythonHandler
 import logging
@@ -25,7 +26,7 @@ logging.config.dictConfig({
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': '~/jupyter.log',
+            'filename': os.path.join(os.path.expanduser("~"), 'jupyter.log'),
         },
         'logstash': {
             'level': 'DEBUG',
