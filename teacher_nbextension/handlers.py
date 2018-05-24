@@ -1,9 +1,10 @@
 import json
-import os
-from notebook.utils import url_path_join
-from notebook.base.handlers import IPythonHandler
 import logging
 import logging.config
+import os
+
+from notebook.base.handlers import IPythonHandler
+from notebook.utils import url_path_join
 
 logger = logging.getLogger(__name__)
 
@@ -51,10 +52,9 @@ logger.info('Go!')
 
 class ExecuteHandler(IPythonHandler):
     def get(self):
-        self.finish(json.dumps({"hello": "world"}))
+        self.finish(json.dumps({"response": "ok"}))
 
     def post(self):
-        # import pdb; pdb.set_trace()
         data = self.request.body_arguments
         logger.info(data)
         self.finish(json.dumps({"log": "ok"}))
